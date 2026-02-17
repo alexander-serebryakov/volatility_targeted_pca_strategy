@@ -1,0 +1,24 @@
+strategy:
+    target_volatility: 0.25  # More aggressive volatility target for higher returns
+    use_ewma: True
+    ewma_vol_decay: 0.9  # Faster adaptation to volatility regimes
+    max_leverage: 6.0   # Higher leverage potential
+    min_leverage: 0.05  # Lower bound for flexibility
+    max_gross_leverage: 4.0  # Higher gross exposure cap
+    max_position_size: 0.15  # Larger position sizes allowed
+
+factor:
+    correlation_lookback: 504
+    mp_cleaning: True
+    use_ewma_corr: True  # Use EWMA correlation for more responsive factor model
+    ewma_corr_decay: 0.9
+
+signal:
+    kappa_threshold: 2.5  # Higher threshold for stronger mean reversion signals
+    s_score_open_long: 1.5  # Lower threshold to enter trades earlier
+    s_score_open_short: 1.5  # Lower threshold for short entries
+    s_score_close_long: 0.5  # Tighter close threshold to exit early
+    s_score_close_short: 0.5  # Tighter close for shorts
+    prop_scaling_factor: 0.8  # Lower scaling for larger proportional positions
+    prop_min_size: 0.5  # Higher minimum position size for strong signals
+    prop_max_size: 2.5  # Higher maximum to fully capitalize on strong signals
