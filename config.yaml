@@ -1,5 +1,5 @@
 strategy:
-    target_volatility: 0.22
+    target_volatility: 0.2
     use_ewma: True
     ewma_vol_decay: 0.95
     max_leverage: 7.0
@@ -9,9 +9,11 @@ strategy:
     vol_lookback: 42
 
 factor:
-    correlation_lookback: 126
-    use_mp_cleaning: True
-    use_rie: True
+    correlation_lookback: 256
+    cleaner_type: "rie"
+    # cleaner_config:
+        # grid_size: 100
+    #     bandwidth: None
     use_ewma_corr: True
     ewma_corr_decay: 0.95
 
@@ -19,8 +21,8 @@ signal:
     kappa_threshold: 2.2
     s_score_open_long: 1.65
     s_score_open_short: 1.65
-    s_score_close_long: 0.6
-    s_score_close_short: 0.6  
+    s_score_close_long: 0.5
+    s_score_close_short: 0.75  
     prop_scaling_factor: 1.0
     prop_min_size: 0.25
     prop_max_size: 3.0
